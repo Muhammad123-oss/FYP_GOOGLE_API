@@ -11,17 +11,18 @@ let service;
 let infowindow;
 
 function initMap() {
-  const khi = new google.maps.LatLng(30.3753, 69.3451);
+  const khi = new google.maps.LatLng(24.8607, 67.0011);
 
   infowindow = new google.maps.InfoWindow();
   map = new google.maps.Map(document.getElementById("map"), {
     center: khi,
-    zoom: 15,
+    zoom: 10,
   });
 
   const request = {
+    radius: 500,
     location: khi,
-    radius: '1000',
+    types:['bus_station','transit_station'],
     query: "stop",
   };
 

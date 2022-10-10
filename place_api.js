@@ -20,10 +20,14 @@ function initMap() {
   });
 
   const request = {
-    radius: 500,
+    /* radius: 5, */
     location: khi,
     types:['bus_station','transit_station'],
     query: "stop",
+    bounds: new google.maps.LatLngBounds(
+    new google.maps.LatLng(24.9329048,66.9673828),
+    new google.maps.LatLng(24.9109894,67.0307512)
+    ),
   };
 
   service = new google.maps.places.PlacesService(map);
@@ -33,11 +37,11 @@ function initMap() {
         createMarker(results[i]);
         console.log("faiz");
         console.log(results[i].geometry.location.lat());
-        console.log(results[i].geometry.viewport.getNorthEast
-().lat());
-console.log(results[i].geometry.viewport.getSouthWest().lng());
       }
-
+      console.log(results[0].geometry.location.lat());
+      console.log(results[0].geometry.location.lng());
+      console.log(results[3].geometry.location.lat());
+      console.log(results[3].geometry.location.lng())
       map.setCenter(results[0].geometry.location);
     }
   });
